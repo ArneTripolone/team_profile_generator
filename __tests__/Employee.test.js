@@ -1,5 +1,5 @@
-const Manager = require('../lib/Manager');
+const Employee = require('../lib/Employee');
 
-test('properly extends employee class with github', () => {
-  expect(Manager).hasOwnProperty('officeNumber')
+test('properly extends employee class with name, id and email', () => {
+  expect(Employee).hasOwnProperty('name', 'id', 'email')
 })
