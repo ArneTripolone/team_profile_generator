@@ -8,17 +8,11 @@ const fs = require('fs');
 
 const generateHTML = (answers) =>
 `
-  <div class="row">
-    <div class="col-sm-6">
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
-         <h5 class="card-title">Name: ${answers.name} </h5>
-         <p class="card-text">Occupation: ${answers.occupation} </p>
-          <p class="card-text">Id: ${answers.id} </p>
-          <p class="card-text">Email: ${answers.email} </p>
-          <p class="card-text"></p> ${answers.office_number || answers.school || answers.github} </p>
-        </div>
-      </div>
+      <h5 class="card-title">Name: ${answers.name} 
+      <p class="card-text">Occupation: ${answers.occupation} </p>
+      <p class="card-text">Id: ${answers.id} </p>
+      <a class="card-text" href="mailto:${answers.email}">${answers.email}</a> 
+      <p class="card-text"></p> ${answers.office_number || answers.school || answers.github} </p>
     </div>
   </div>
 `
