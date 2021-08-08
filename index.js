@@ -7,14 +7,17 @@ const fs = require('fs');
 //let myManager = new Manager('Arne', 182859, 'arnetripolone@gmail.com')
 
 const generateHTML = (answers) =>
-`
-      <h5 class="card-title">Name: ${answers.name} 
-      <p class="card-text">Occupation: ${answers.occupation} </p>
-      <p class="card-text">Id: ${answers.id} </p>
-      <a class="card-text" href="mailto:${answers.email}">${answers.email}</a> 
-      <p class="card-text"></p> ${answers.office_number || answers.school || answers.github} </p>
-    </div>
-  </div>
+` 
+<div class="card-group">
+  <class="card border-success mb-3" style="max-width: 18rem;">
+    <br>
+    <br>
+    <p> Name: ${answers.name}</p> 
+    <p> Occupation: ${answers.occupation}</p>
+    <p> Id: ${answers.id}</p>
+    <p> Office/GitHub/School: ${answers.office_number || answers.school || answers.github}</p>
+    <a class="card-body>Email: "href="mailto:${answers.email}">${answers.email}</a>
+</div>
 `
 ;
 
@@ -77,8 +80,8 @@ inquirer
 .then((answers) => {
     const HTMLPageContent = generateHTML(answers);
 
-    fs.appendFile('./dist/teamProfile.html', HTMLPageContent, (err) =>
-      err ? console.log(err) : console.log('Successfully created teamProfile.html. To add another employee, run node ProfileGenerator again!')
+    fs.appendFile('./dist/team_profile.html', HTMLPageContent, (err) =>
+      err ? console.log(err) : console.log('Successfully created team_profile.html. To add another employee, run node ProfileGenerator again!')
     );
   }
 )
