@@ -21,6 +21,7 @@ const generateHTML = (answers) =>
 `
 ;
 
+//generates question array in inquirer package 
 inquirer
   .prompt([
     { 
@@ -34,7 +35,9 @@ inquirer
       message: 'What is your occupation?',
       choices: ["Manager", "Intern", "Engineer"],
     },
-//credit to George F for the 'when' property https://stackoverflow.com/questions/61691283/it-is-possible-to-create-branching-questions-with-inquirer
+//credit to George F for the 'when' property: 
+//https://stackoverflow.com/questions/61691283/it-is-possible-to-create-branching-questions-with-inquirer
+//if a user selected Engineer, for example, in the previous question, they are able to enter their GitHub username below
     {
       type: "input",
       name: "github",
@@ -79,7 +82,7 @@ inquirer
   
 .then((answers) => {
     const HTMLPageContent = generateHTML(answers);
-
+    //appends users responses to the team_profile.html file
     fs.appendFile('./dist/team_profile.html', HTMLPageContent, (err) =>
       err ? console.log(err) : console.log('Successfully created team_profile.html. To add another employee, run node ProfileGenerator again!')
     );
