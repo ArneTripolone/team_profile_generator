@@ -8,16 +8,16 @@ const fs = require('fs');
 
 const generateHTML = (answers) =>
 ` 
-<div class="card-group">
-  <class="card border-success mb-3" style="max-width: 18rem;">
-    <br>
-    <br>
-    <p> Name: ${answers.name}</p> 
-    <p> Occupation: ${answers.occupation}</p>
+<fieldset class="profiles">
+    <h3>${answers.name}<br>
+    ${answers.occupation}</h3> 
     <p> Id: ${answers.id}</p>
     <p> Office/GitHub/School: ${answers.office_number || answers.school || answers.github}</p>
     <a class="card-body>Email: "href="mailto:${answers.email}">${answers.email}</a>
-</div>
+    <br>
+</fieldset>
+<br>
+<br>
 `
 ;
 
